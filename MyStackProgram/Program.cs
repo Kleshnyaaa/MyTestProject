@@ -4,7 +4,7 @@ namespace MyStackProgram
 {
     class Program
     {
-        public static void PrintStackElements(MyStack s)
+        public static void PrintStackElements(MyStackGeneric<int> s)
         {
             while (!s.IsEmpty())
             {
@@ -15,7 +15,7 @@ namespace MyStackProgram
 
         static void Main(string[] args)
         {
-            MyStack stack = new MyStack(10);
+            MyStackGeneric<int> stack = new MyStackGeneric<int>(10);
 
             for (int i = 0; i < 10; i++)
             {
@@ -26,15 +26,34 @@ namespace MyStackProgram
             Console.WriteLine();
             Console.WriteLine("Before print.");
             Console.WriteLine("General capacity: {0}", stack.GetGeneralCapacity());
-            Console.WriteLine("Current capacity: {0}", stack.GetCurrentNumberOfElement());
+            Console.WriteLine("Current capacity: {0}", stack.GetCurrentCapacity());
             Console.WriteLine("Is stack full? - {0}", stack.IsFull());
             Console.WriteLine("Is stack empty? - {0}", stack.IsEmpty());
+
+            try
+            {
+                stack.Push(3);
+            }
+            catch (MyStackException)
+            {
+                Console.WriteLine("I've cought exception: {0}", stack.GetCurrentCapacity());
+            }
+
             PrintStackElements(stack);
+
+            try
+            {
+                stack.Pop();
+            }
+            catch (MyStackException)
+            {
+                Console.WriteLine("I've cought exception again: {0}", stack.GetCurrentCapacity());
+            }
 
             Console.WriteLine();
             Console.WriteLine("After print.");
             Console.WriteLine("General capacity: {0}", stack.GetGeneralCapacity());
-            Console.WriteLine("Current capacity: {0}", stack.GetCurrentNumberOfElement());
+            Console.WriteLine("Current capacity: {0}", stack.GetCurrentCapacity());
             Console.WriteLine("Is stack full? - {0}", stack.IsFull());
             Console.WriteLine("Is stack empty? - {0}", stack.IsEmpty());
             Console.ReadLine();
