@@ -26,20 +26,36 @@ namespace RemeberBases
         }
     }
 
+    class MyTestReloadConstructor
+    {
+        private string Message { get; set; }
+
+        public MyTestReloadConstructor(string message)
+        {
+            Message = message;
+        }
+
+        public MyTestReloadConstructor() : this("I will tell this instead of you!")
+        {
+
+        }
+
+        public void Show()
+        {
+            Console.WriteLine(Message);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            int[] myArray = new int[100];
-            Console.WriteLine(myArray.Length);
-            for (int i = 0; i < myArray.Length; i++)
-            {
-                myArray[i] = i;
-                Console.WriteLine("i = {0}, array's element = {1}", i, myArray[i]);
-            }
+            MyTestReloadConstructor tmp = new MyTestReloadConstructor("Hello world.");
+            MyTestReloadConstructor tmp2 = new MyTestReloadConstructor();
 
+            tmp.Show();
+            tmp2.Show();
 
-            Console.WriteLine("The end!");
             Console.ReadLine();
         }
     }
