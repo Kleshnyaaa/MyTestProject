@@ -48,15 +48,20 @@ namespace RemeberBases
 
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
+            /*
             MyTestReloadConstructor tmp = new MyTestReloadConstructor("Hello world.");
             MyTestReloadConstructor tmp2 = new MyTestReloadConstructor();
 
             tmp.Show();
             tmp2.Show();
+            */
 
-            Console.ReadLine();
+            Console.WriteLine("This method will return value to the call programm.");
+            return 42; // To check this value use "echo %ERRORLEVEL%"
+
+            //Console.ReadLine();
         }
     }
 }
