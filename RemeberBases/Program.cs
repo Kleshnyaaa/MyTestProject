@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyCryptoLibrary;
 
 namespace RemeberBases
 {
@@ -48,8 +49,13 @@ namespace RemeberBases
 
     class Program
     {
-        static int Main(string[] args)
+        static void Main(string[] args)
         {
+            MyCrypto coder = new MyCrypto("Hello world!");
+            coder.PrintKeyArray();
+            Console.WriteLine(coder.Key);
+            Console.ReadLine();
+
             /*
             MyTestReloadConstructor tmp = new MyTestReloadConstructor("Hello world.");
             MyTestReloadConstructor tmp2 = new MyTestReloadConstructor();
@@ -58,8 +64,8 @@ namespace RemeberBases
             tmp2.Show();
             */
 
-            Console.WriteLine("This method will return value to the call programm.");
-            return 42; // To check this value use "echo %ERRORLEVEL%"
+            //Console.WriteLine("This method will return value to the call programm.");
+            //return 42; // To check this value use "echo %ERRORLEVEL%"
 
             //Console.ReadLine();
         }
