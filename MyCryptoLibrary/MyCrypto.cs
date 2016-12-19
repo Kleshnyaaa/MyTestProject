@@ -13,10 +13,11 @@ namespace MyCryptoLibrary
         //delete this method later
         public void PrintKeyArray()
         {
-            for (int i = 0; i < _key.Length; i++)
+            foreach (byte b in _key)
             {
-                Console.Write("{0:X} ", _key[i]);
+                Console.Write("{0:X} ", b);
             }
+
             Console.WriteLine();
         }
 
@@ -32,20 +33,34 @@ namespace MyCryptoLibrary
 
                 return tmp;
             }
-            set
-            {
-                char[] tmp = value.ToCharArray();
-                _key = new byte[tmp.Length];
-                for (int i = 0; i < _key.Length; i++)
-                {
-                    _key[i] = Convert.ToByte(tmp[i]);
-                }
-            }
+            set { _key = this.StringToByteArray(value); }
         }
 
         public MyCrypto(string key)
         {
             Key = key;
+        }
+
+        private byte[] StringToByteArray(string str)
+        {
+            char[] tmp = str.ToCharArray();
+            byte[] result = new byte[tmp.Length];
+
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                result[i] = Convert.ToByte(tmp[i]);
+            }
+
+            return result;
+        }
+
+        //delete this method
+        public void ShowAllUnicodeSimbols()
+        {
+            for (int i = 0; i < 256; i++)
+            {
+                Console.WriteLine("Dec: {0:D} - Hex: {1:X} - Char: {2}", i, i, Convert.ToChar(i));
+            }
         }
     }
 }

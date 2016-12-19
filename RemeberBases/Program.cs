@@ -53,6 +53,7 @@ namespace RemeberBases
         {
             MyCrypto coder = new MyCrypto("Hello world!");
             coder.PrintKeyArray();
+
             Console.WriteLine(coder.Key);
             Console.ReadLine();
 
