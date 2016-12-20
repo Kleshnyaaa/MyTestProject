@@ -64,11 +64,22 @@ namespace RemeberBases
             Console.WriteLine("String after DECRYPTION is \"{0}\"", decrypted);
         }
 
+        static int MyFactorial(int number)
+        {
+            if (number == 1)
+                return 1;
+            else
+            {
+                return (number*MyFactorial(number - 1));
+            }
+        }
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
-            EncryptionTest();
+            //EncryptionTest();
+            Console.WriteLine(MyFactorial(5));
 
             Console.ReadLine();
 
