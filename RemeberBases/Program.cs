@@ -49,12 +49,27 @@ namespace RemeberBases
 
     class Program
     {
+        static void EncryptionTest()
+        {
+            MyCrypto coder = new MyCrypto("Hello!"); //Create class for encoding/decodig and set the Key
+            Console.WriteLine("Coder class is created with key {0}", coder.Key);
+
+            string encryptString = "This is my string for encryption";
+            Console.WriteLine("String for encryption is \"{0}\"", encryptString);
+
+            string encrypted = coder.EncryptString(encryptString);
+            Console.WriteLine("String after encryption as Hexidecimal numbers is \"{0}\"", encrypted);
+
+            string decrypted = coder.DecryptHexString(encrypted);
+            Console.WriteLine("String after DECRYPTION is \"{0}\"", decrypted);
+        }
+
         static void Main(string[] args)
         {
-            MyCrypto coder = new MyCrypto("Hello world!");
-            coder.PrintKeyArray();
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
 
-            Console.WriteLine(coder.Key);
+            EncryptionTest();
+
             Console.ReadLine();
 
             /*
