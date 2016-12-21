@@ -79,7 +79,27 @@ namespace RemeberBases
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
             //EncryptionTest();
-            Console.WriteLine(MyFactorial(5));
+            //Console.WriteLine(MyFactorial(5));
+
+            OverloadOperators f1 = new OverloadOperators(1, 2, 3);
+            OverloadOperators f2 = new OverloadOperators(6, 7, 8);
+
+            f1.Show();
+            f2.Show();
+
+            (f2 + f1).Show();
+            (f2 - f1).Show();
+            (f1 + 10).Show();
+
+            OverloadOperators f3 = new OverloadOperators(1, 1, 0);
+            OverloadOperators f4 = new OverloadOperators(0, 0, 0);
+
+            Console.WriteLine(f3 ? "f3 is true" : "f3 is false");
+
+            Console.WriteLine(f4 ? "f4 is true" : "f4 is false");
+
+            int a = 3 + (int)f1;
+            Console.WriteLine(a);
 
             Console.ReadLine();
 
