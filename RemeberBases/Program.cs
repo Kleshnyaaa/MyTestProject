@@ -74,13 +74,8 @@ namespace RemeberBases
             }
         }
 
-        static void Main(string[] args)
+        static void OverloadOpers()
         {
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
-
-            //EncryptionTest();
-            //Console.WriteLine(MyFactorial(5));
-
             OverloadOperators f1 = new OverloadOperators(1, 2, 3);
             OverloadOperators f2 = new OverloadOperators(6, 7, 8);
 
@@ -100,6 +95,21 @@ namespace RemeberBases
 
             int a = 3 + (int)f1;
             Console.WriteLine(a);
+        }
+
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
+            //EncryptionTest();
+            //Console.WriteLine(MyFactorial(5));
+            //OverloadOpers();
+            
+            PropsAndIndecsators mc = new PropsAndIndecsators();
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(mc[i]);
+            }
 
             Console.ReadLine();
 

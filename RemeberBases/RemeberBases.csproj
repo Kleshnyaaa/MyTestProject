@@ -46,6 +46,7 @@
     <Compile Include="OverloadOperators.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropsAndIndecsators.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
