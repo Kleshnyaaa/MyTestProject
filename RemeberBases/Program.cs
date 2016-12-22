@@ -111,6 +111,10 @@ namespace RemeberBases
                 Console.WriteLine(mc[i]);
             }
 
+            Console.WriteLine(mc["first"]);
+            Console.WriteLine(mc["Second"]);
+            Console.WriteLine(mc["Third"]);
+
             Console.ReadLine();
 
             /*
