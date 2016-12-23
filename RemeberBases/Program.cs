@@ -110,14 +110,39 @@ namespace RemeberBases
             Console.WriteLine(mc["Third"]);
         }
 
+        static void InterfacesTest()
+        {
+            MyClass mc = new MyClass();
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(mc.GetNext());
+            }
+            mc.SetStart(14);
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(mc.GetNext());
+            }
+
+            ((ISeries)mc).Reset();
+            Console.WriteLine(mc.GetNext());
+            Console.WriteLine("This is my next element {0}", mc[65]);
+
+            Console.WriteLine(MyClass.MyEnum.Second + " " + (int)MyClass.MyEnum.Second);
+        }
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
+            Console.ReadLine();
+
+            //InterfacesTest();
             //EncryptionTest();
             //Console.WriteLine(MyFactorial(5));
             //OverloadOpers();
-            
+
+            /*
             BaseClass bc = new BaseClass();
             Inherited inh = new Inherited();
             SecondInherited sinh = new SecondInherited();
@@ -130,8 +155,7 @@ namespace RemeberBases
             t.Who();
 
             object ob = 10;
-
-            Console.ReadLine();
+            */
 
             /*
             MyTestReloadConstructor tmp = new MyTestReloadConstructor("Hello world.");

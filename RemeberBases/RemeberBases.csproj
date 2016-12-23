@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISeries.cs" />
     <Compile Include="MyInheritas.cs" />
     <Compile Include="OverloadOperators.cs" />
     <Compile Include="Program.cs" />
