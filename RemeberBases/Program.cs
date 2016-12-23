@@ -97,14 +97,8 @@ namespace RemeberBases
             Console.WriteLine(a);
         }
 
-        static void Main(string[] args)
+        static void PropertiesAndIndicators()
         {
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
-
-            //EncryptionTest();
-            //Console.WriteLine(MyFactorial(5));
-            //OverloadOpers();
-            
             PropsAndIndecsators mc = new PropsAndIndecsators();
             for (int i = 0; i < 10; i++)
             {
@@ -114,6 +108,26 @@ namespace RemeberBases
             Console.WriteLine(mc["first"]);
             Console.WriteLine(mc["Second"]);
             Console.WriteLine(mc["Third"]);
+        }
+
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
+            //EncryptionTest();
+            //Console.WriteLine(MyFactorial(5));
+            //OverloadOpers();
+            
+            BaseClass bc = new BaseClass();
+            Inherited inh = new Inherited();
+            SecondInherited sinh = new SecondInherited();
+
+            bc.Who();
+            inh.Who();
+            sinh.Who();
+
+            BaseClass t = new Inherited();
+            t.Who();
 
             Console.ReadLine();
 
