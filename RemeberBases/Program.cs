@@ -129,6 +129,8 @@ namespace RemeberBases
             BaseClass t = new Inherited();
             t.Who();
 
+            object ob = 10;
+
             Console.ReadLine();
 
             /*
