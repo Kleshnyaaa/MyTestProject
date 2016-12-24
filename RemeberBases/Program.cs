@@ -131,9 +131,29 @@ namespace RemeberBases
             Console.WriteLine(MyClass.MyEnum.Second + " " + (int)MyClass.MyEnum.Second);
         }
 
+        static void ExceptionStest()
+        {
+            int i = 0;
+            try
+            {
+                Console.WriteLine(12 / i);
+            }
+            catch (DivideByZeroException ex)
+            {
+
+                Console.WriteLine("Division by zero, {0}", ex.TargetSite);
+            }
+            finally
+            {
+                Console.WriteLine("Finally...");
+            }
+        }
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
+
+            
 
             Console.ReadLine();
 
