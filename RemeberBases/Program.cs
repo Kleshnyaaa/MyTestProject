@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -149,10 +150,71 @@ namespace RemeberBases
             }
         }
 
+        static void Something1()
+        {
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                char tk = key.KeyChar;
+                Console.WriteLine(tk);
+                if (tk == 'q')
+                    break;
+            }
+
+            char ch;
+            do
+            {
+                ch = (char)Console.Read();
+                if (ch == '\r')
+                {
+                    Console.Read();
+                    break;
+                }
+                Console.WriteLine("Your symbol is {0}", ch);
+            } while (true);
+        }
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
+            Console.WriteLine("Enter file path");
+            string filePath = Console.ReadLine();
+
+            FileStream stream;
+
+            try
+            {
+                stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite);
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Cannot open file");
+                return;
+            }
+
+            int i;
+            long lostBytes = stream.Length;
+            const int len = 100;
+            try
+            {
+                do
+                {
+                    int bytesToRead = lostBytes > len ? len : (int) (lostBytes);
+                    byte[] bytes = new byte[bytesToRead];
+                    i = stream.Read(bytes, 0, bytesToRead);
+                    lostBytes -= bytes.Length;
+                    foreach (var b in bytes)
+                    {
+                        Console.Write((char)b);
+                    }
+                } while (i == len);
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("There are some problems with file reading!");
+                return;
+            }
             
 
             Console.ReadLine();
