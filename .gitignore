@@ -4,3 +4,5 @@ MyStackProgram/bin/*
 MyStackProgram/obj/*
 MyCryptoLibrary/obj/*
 MyCryptoLibrary/bin/*
+EventTests/obj/*
+EventTests/bin/*

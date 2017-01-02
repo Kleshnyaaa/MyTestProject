@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStackProgram", "MyStackPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCryptoLibrary", "MyCryptoLibrary\MyCryptoLibrary.csproj", "{31138431-F3C0-4B62-848D-5FE52F228EF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTests", "EventTests\EventTests.csproj", "{A424E92A-5770-4765-A545-73C2BCEE7337}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{31138431-F3C0-4B62-848D-5FE52F228EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31138431-F3C0-4B62-848D-5FE52F228EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31138431-F3C0-4B62-848D-5FE52F228EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A424E92A-5770-4765-A545-73C2BCEE7337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A424E92A-5770-4765-A545-73C2BCEE7337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A424E92A-5770-4765-A545-73C2BCEE7337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A424E92A-5770-4765-A545-73C2BCEE7337}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

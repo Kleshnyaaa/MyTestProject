@@ -8,6 +8,10 @@ using MyCryptoLibrary;
 
 namespace RemeberBases
 {
+    delegate void TestDelegate(string str);
+
+    delegate void StringModifier(ref string str);
+
     class Destruct
     {
         private int _x;
@@ -48,8 +52,44 @@ namespace RemeberBases
         }
     }
 
+    class StringModifierClass
+    {
+        public void PrintSomethingForMe(string s)
+        {
+            Console.WriteLine(s);
+        }
+
+        public void ReplaceSpaces(ref string str)
+        {
+            str = str.Replace(' ', '-');
+        }
+
+        public void ReverseString(ref string str)
+        {
+            string temp = "";
+            for (int i = 0, j = str.Length - 1; i < str.Length; i++, j--)
+            {
+                temp += str[j];
+            }
+            str = temp;
+        }
+
+        public void DeleteSpaces(ref string str)
+        {
+            string temp = "";
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] != ' ')
+                    temp += str[i];
+            }
+            str = temp;
+        }
+    }
+
     class Program
     {
+        delegate int Incr(int c);
+
         static void EncryptionTest()
         {
             MyCrypto coder = new MyCrypto("Hello!"); //Create class for encoding/decodig and set the Key
@@ -269,14 +309,46 @@ namespace RemeberBases
             }
         }
 
+        static void PrintLine(string s)
+        {
+            Console.WriteLine(s);
+        }
+
+        static void Delegates1()
+        {
+            StringModifier d = null;
+            StringModifierClass smc = new StringModifierClass();
+            string s = "Hello world! My bro wanna drunk a little.";
+
+            d += smc.DeleteSpaces;
+            d += smc.ReverseString;
+            d(ref s);
+            Console.WriteLine(s);
+
+            StringModifier mod1 = delegate (ref string s2)
+            {
+                Console.WriteLine(s2);
+            };
+
+            string l = "Hello from anonimus";
+            mod1(ref l);
+        }
+
+        static void Delegates2()
+        {
+            Incr addOne = num => num += 2;
+            Console.WriteLine(addOne(10));
+        }
+        
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
-            WriteToFile(@"D:\my_test.dat");
-            
+            Delegates2();
+
             Console.ReadLine();
 
+            //WriteToFile(@"D:\my_test.dat");
             //ReadFromFile();
             //InterfacesTest();
             //EncryptionTest();
