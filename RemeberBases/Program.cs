@@ -174,10 +174,8 @@ namespace RemeberBases
             } while (true);
         }
 
-        static void Main(string[] args)
+        static void ReadFromFile()
         {
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
-
             Console.WriteLine("Enter file path");
             string filePath = Console.ReadLine();
 
@@ -200,7 +198,7 @@ namespace RemeberBases
             {
                 do
                 {
-                    int bytesToRead = lostBytes > len ? len : (int) (lostBytes);
+                    int bytesToRead = lostBytes > len ? len : (int)(lostBytes);
                     byte[] bytes = new byte[bytesToRead];
                     i = stream.Read(bytes, 0, bytesToRead);
                     lostBytes -= bytes.Length;
@@ -215,10 +213,71 @@ namespace RemeberBases
                 Console.WriteLine("There are some problems with file reading!");
                 return;
             }
-            
+            finally
+            {
+                stream.Close();
+            }
 
+        }
+
+        static void WriteToFile(string fileName)
+        {
+            byte[] tmpBytes = new byte[500];
+            Random r = new Random(256);
+            int i = 0;
+            for (char c = 'A'; c < 'z'; c++, i++)
+            {
+                tmpBytes[i] = (byte) c;
+            }
+            
+            FileStream fout = null;
+            Console.WriteLine(fout);
+            BinaryWriter sr = null; 
+
+            try
+            {
+                fout = new FileStream(fileName, FileMode.Create);
+                //fout.Write(tmpBytes, 0, tmpBytes.Length);
+                //fout.Flush();
+                sr = new BinaryWriter(fout);
+                sr.Write(12.3);
+                sr.Write("string");
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                sr.Close();
+                if (fout != null)   
+                    fout.Close();
+            }
+
+
+            try
+            {
+                BinaryReader strR = new BinaryReader(new FileStream(fileName, FileMode.Open));
+                //Console.WriteLine(strR.ReadString());
+                Console.WriteLine(strR.ReadDouble());
+                Console.WriteLine(strR.ReadString());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("End of file");
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
+            WriteToFile(@"D:\my_test.dat");
+            
             Console.ReadLine();
 
+            //ReadFromFile();
             //InterfacesTest();
             //EncryptionTest();
             //Console.WriteLine(MyFactorial(5));
